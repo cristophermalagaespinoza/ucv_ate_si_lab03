@@ -1,0 +1,37 @@
+[project]
+name = "ucv-ate-si-lab03"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "cristophermalagaespinoza",email = "cristophermalagaespinoza@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "kedro (>=1.3.1,<2.0.0)",
+    "opencv-python (>=4.13.0.92,<5.0.0.0)",
+    "numpy (>=2.4.4,<3.0.0)",
+    "matplotlib (>=3.10.9,<4.0.0)",
+    "kedro-datasets (>=9.3.0,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pytest (>=9.0.3,<10.0.0)"
+]
+[tool.poetry]
+packages = [{ include = "ucv_ate_si_lab03", from = "src" }]
+[tool.kedro]
+package_name = "ucv_ate_si_lab03"
+project_name = "ucv_ate_si_lab03"
+kedro_init_version = "1.3.1"
+tools = []
+example_pipeline = "False"
+source_dir = "src"
+[tool.kedro_telemetry]
+project_id = "9423beb79a6a4af7be2d71f3df0caab0"

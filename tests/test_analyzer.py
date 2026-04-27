@@ -1,0 +1,36 @@
+import numpy as np
+
+from ucv_ate_si_lab03.pipelines.histogram.analyzer import ImageAnalyzer
+
+
+def test_calcular_histograma_devuelve_256_valores():
+    imagen = np.zeros((10, 10), dtype=np.uint8)
+    analyzer = ImageAnalyzer()
+
+    histograma = analyzer.calcular_histograma(imagen)
+
+    assert len(histograma) == 256
+
+
+def test_clasificar_imagen_oscura():
+    histograma = np.zeros(256)
+    histograma[10] = 100
+    histograma[200] = 10
+
+    analyzer = ImageAnalyzer()
+
+    resultado = analyzer.clasificar_imagen(histograma)
+
+    assert resultado == "oscura"
+
+
+def test_clasificar_imagen_clara():
+    histograma = np.zeros(256)
+    histograma[10] = 10
+    histograma[200] = 100
+
+    analyzer = ImageAnalyzer()
+
+    resultado = analyzer.clasificar_imagen(histograma)
+
+    assert resultado == "clara"
